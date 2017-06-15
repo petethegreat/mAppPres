@@ -1,0 +1,11 @@
+
+
+slides > slide {
+    background: #ccccff;
+}
+
+slides > slide > hgroup > h2 {
+    color: #ff00cc;
+
+}
+
