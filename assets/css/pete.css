@@ -1,11 +1,55 @@
 
 
-.slide {
-    background: #ccccff;
+.pSlide {
+    background: #d0d0ff;
 }
 
-slides > slide > hgroup > h2 {
+/*slides > slide > hgroup > h2 {
     color: #ff00cc;
 
+
+}*/
+
+.pSlide > hgroup > h2 {
+	color: #0000ff;
+	font-family: "Anton",sans-serif;
 }
 
+/*.pSlide article pre {
+	padding: 2px;
+}*/
+
+.pSlide article p {
+	margin-bottom: 5px;
+}
+.pSlide article pre {
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+a.notext {
+	text-decoration: none;
+	border: 0 none;
+}
+#yelpImg {
+	width: 100%;
+}
+
+.title-slide {
+	background: #9900ff;
+}
+.title-slide > hgroup > h1, .title-slide > hgroup >h2 {
+	color: #ffffff;
+	font-family: 'Palanquin Dark', sans-serif;
+}
+.title-slide > hgroup p {
+	color: #ffffff;
+	font-family: 'Abril Fatface', cursive;
+	font-size: 25px;
+	
+}
+
+pre code {
+	background: #dddddd;
+	font-size: 16px;
+	padding: 0px;
+}

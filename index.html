@@ -42,51 +42,71 @@
     
 
     <!-- SLIDES -->
-    <slide class="" id="slide-1" style="background:;">
-  <hgroup>
-    <h2>Yelp</h2>
-  </hgroup>
+    <slide class="pSlide" id="slide-1" style="background:;">
   <article data-timings="">
-    <p>When you&#39;re hungry, you need to know where you can get good food nearby.</p>
+    <!-- ## Yelp -->
+
+<div style="width:300px;">
+<a href="http://www.yelp.com" class="notext">
+    <img src="assets/img/Yelp_trademark_RGB.png" id="yelpImg" >
+ </a>
+</div>
+
+<p>When you&#39;re hungry, you need to know where you can get good food nearby. Yelp is great for getting an idea of what&#39;s good, but it isn&#39;t easy to tell what&#39;s good <strong>and</strong> close. Maybe you&#39;re feeling like indian food, but what if there&#39;s an excellent sushi place much closer? What if you&#39;re out somewhere and get a sudden craving for bad chinese food?</p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="class" id="id" style="background:;">
+<slide class="pSlide" id="slide-2" style="background:;">
   <hgroup>
-    <h2>Maps</h2>
+    <h2>RestoMapp</h2>
   </hgroup>
   <article data-timings="">
-    <p>A map is handy. This Shiny app uses data pulled from Yelp for a few cuisine categories. Can select which ones are displayed by using the checkbox</p>
+    <p>A map is handy. The RestoMapp Shiny app uses data pulled from Yelp for some popular cuisine categories. Restaurants are displayed on the map and coloured according to category and can be filtered according to cuisine or yelp rating. Clicking on a marker will bring up some information on the restaurant.</p>
 
-<!--screenshot -->
+<div style="width:auto;height:auto;max-width:300px,max-height:300px">
+<a href="https://petethegreat.shinyapps.io/RestoMapp/" class="notext" style="max-width:100%;max-height:100%;" ><img src='assets/img/appScreenshot2.png' style="max-width:600px;max-height:600px;display:block;margin-left:auto;margin-right:auto"> </a>
+</div>
 
-<!-- 
-<a href='SHINYMAPURL><img src="assets/img/SCREENSHOT.jpg"> </a?>
--->
+<p>Some plots based on the restaurant data are shown in the following slides.</p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="class" id="id" style="background:;">
+<slide class="pSlide" id="slide-3" style="background:;">
   <hgroup>
-    <h2>Toronto  Restaurants</h2>
+    <h2>Ratings by Category</h2>
   </hgroup>
   <article data-timings="">
-    <p>violin plot of restaurant ratings by cuisine or histogram</p>
+    <p>French restaurants and steakhouses are rated highly. There is a lot of variation in burger joints, middle eastern, and Mexican restaurants.</p>
+
+<pre><code class="r">library(ggplot2)
+yd&lt;-read.csv(&#39;yelpData.csv&#39;)
+yd$category &lt;- as.factor(yd$category)
+g&lt;- ggplot(data=yd,aes(x=category,y=rating,colour=category,fill=category)) + geom_violin(adjust=2)
+g
+</code></pre>
+
+<p><img src="assets/fig/ratingsplot-1.png" title="plot of chunk ratingsplot" alt="plot of chunk ratingsplot" style="display: block; margin: auto;" /></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="class" id="id" style="background:;">
+<slide class="pSlide" id="slide-4" style="background:;">
   <hgroup>
-    <h2>Toronto Restaurants 2</h2>
+    <h2>Numbers by Category</h2>
   </hgroup>
   <article data-timings="">
-    <p>bar chart of restaurants by number</p>
+    <p>There are a <strong>lot</strong> of sushi restaurants in Toronto. There are only a small number of French restaurants, but those few are rated highly. There are quite a lot of burger and Chinese places, which is not surprising, but fewer Middle Eastern places than I would have thought.</p>
+
+<pre><code class="r">h&lt;- ggplot(data=yd,aes(x=category,y=..count..,colour=category,fill=category)) + geom_bar()
+h
+</code></pre>
+
+<p><img src="assets/fig/numbersplot-1.png" title="plot of chunk numbersplot" alt="plot of chunk numbersplot" style="display: block; margin: auto;" /></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -98,25 +118,25 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Yelp'>
+        data-slide=1 title='NA'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Maps'>
+        data-slide=2 title='RestoMapp'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Toronto  Restaurants'>
+        data-slide=3 title='Ratings by Category'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Toronto Restaurants 2'>
+        data-slide=4 title='Numbers by Category'>
          4
       </a>
     </li>
